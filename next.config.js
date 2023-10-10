@@ -5,16 +5,14 @@ const isGithubActions = process.env.GITHUB_ACTIONS || false
 let assetPrefix = ''
 let basePath = '/'
 
-if (true) {
-  assetPrefix = 'https://lodianiez.github.io/myportfolio/'
-  basePath = '/myportfolio'
+if (isGithubActions) {
+  const repo = process.env.GITHUB_REPOSITORY.replace(/.*?\//, '')
+
+  assetPrefix = `/${repo}/`
+  basePath = `/${repo}`
 }
 
 module.exports = {
   assetPrefix: assetPrefix,
   basePath: basePath,
-  output: 'export',
-  images: {
-    path: basePath,
-  },
 }
