@@ -1,4 +1,4 @@
-import Portfolio from "@/components/Wrapper";
+import Portfolio from "@/components/MainWrapper";
 
 const App = () => <Portfolio />;
 
