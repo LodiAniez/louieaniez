@@ -10,6 +10,7 @@ import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
 import EmailIcon from "@mui/icons-material/EmailOutlined";
 import PhoneIcon from "@mui/icons-material/PhoneAndroidOutlined";
+import LocationIcon from "@mui/icons-material/MapsHomeWorkOutlined";
 import CakeIcon from "@mui/icons-material/CakeOutlined";
 import { basePath } from "./../../next.config";
 
@@ -40,6 +41,11 @@ const LeftWrapper = () => {
       primary: "Birthday",
       secondary: "April 27, 1998",
     },
+    {
+      icon: <LocationIcon className="text-[#16212b]" />,
+      primary: "Location",
+      secondary: "Zambo. Sur, Phil.",
+    },
   ];
 
   return (
@@ -48,7 +54,7 @@ const LeftWrapper = () => {
         <Image
           className="rounded-lg"
           src={`${basePath}/me.png`}
-          alt="Vercel Logo"
+          alt="Me"
           width={100}
           height={24}
           priority

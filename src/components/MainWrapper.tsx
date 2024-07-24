@@ -10,7 +10,7 @@ const MainWrapper = () => {
       <Grid item xs={6} md={3} className="h-full p-10">
         <LeftWrapper />
       </Grid>
-      <Grid item xs={6} md={9} className="h-full p-10 pl-0">
+      <Grid item xs={6} md={9} className="min-h-full p-10 pl-0">
         <RightWrapper />
       </Grid>
     </Grid>

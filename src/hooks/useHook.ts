@@ -5,6 +5,8 @@ export enum MenuItems {
   EXPERIENCES = "experiences",
   PROJECTS = "projects",
   ACHIEVEMENTS = "achievements",
+  SOCIALS = "socials",
+  SKILLS = "skills",
 }
 
 export const useHook = () => {
