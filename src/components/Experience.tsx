@@ -158,7 +158,11 @@ const Experience = () => {
       </div>
       <Box className="flex flex-col gap-2">
         {expContent.map((exp, index) => (
-          <Card className="w-full bg-[#16212b]" key={index}>
+          <Card
+            className="w-full"
+            sx={{ backgroundColor: "#16212b" }}
+            key={index}
+          >
             <CardHeader
               avatar={
                 <Avatar aria-label="vbn" className="bg-[#000]">
