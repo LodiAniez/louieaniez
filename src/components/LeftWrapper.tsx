@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
@@ -12,6 +13,7 @@ import EmailIcon from "@mui/icons-material/EmailOutlined";
 import PhoneIcon from "@mui/icons-material/PhoneAndroidOutlined";
 import LocationIcon from "@mui/icons-material/MapsHomeWorkOutlined";
 import CakeIcon from "@mui/icons-material/CakeOutlined";
+import DownloadIcon from "@mui/icons-material/DownloadOutlined";
 import { basePath } from "./../../next.config";
 
 type PersonalDetail = {
@@ -48,6 +50,15 @@ const LeftWrapper = () => {
     },
   ];
 
+  const handleDownload = () => {
+    const link = document.createElement("a");
+
+    link.download = "resume.pdf";
+    link.href = `${basePath}/resume.pdf`;
+
+    link.click();
+  };
+
   return (
     <Box className="min-h-full w-full flex-grow flex-1 rounded-md bg-[#141a21] p-8">
       <Box className="flex flex-col items-center justify-center w-full gap-5">
@@ -82,6 +93,16 @@ const LeftWrapper = () => {
             ))}
           </List>
         </Box>
+        <Button
+          variant="contained"
+          className="w-full"
+          size="small"
+          startIcon={<DownloadIcon />}
+          color="success"
+          onClick={handleDownload}
+        >
+          resume
+        </Button>
       </Box>
     </Box>
   );

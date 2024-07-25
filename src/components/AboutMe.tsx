@@ -45,7 +45,7 @@ const AboutMe = () => {
               I also play some outdoor sports like basketball and sepak takraw,
               and read books, watch documentaries or anime movies when I'm alone
               at home. I don't usually socialize as I'm an introvert person, I
-              only go out if necessary.
+              only go out when necessary.
             </p>
           </Box>
         </Box>

@@ -7,6 +7,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 
 import AboutMe from "@/components/AboutMe";
+import Experience from "@/components/Experience";
 
 import { useHook, MenuItems } from "@/hooks/useHook";
 
@@ -60,7 +61,13 @@ const RightWrapper = () => {
         </Grid>
       </Grid>
       <Box className="h-full p-2">
-        {selectedItem === MenuItems.ABOUT ? <AboutMe /> : selectedItem}
+        {selectedItem === MenuItems.ABOUT ? (
+          <AboutMe />
+        ) : selectedItem === MenuItems.EXPERIENCES ? (
+          <Experience />
+        ) : (
+          selectedItem
+        )}
       </Box>
     </Box>
   );
