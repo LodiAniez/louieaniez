@@ -19,7 +19,7 @@ const RightWrapper = () => {
       <Grid container>
         <Grid item xs={6} md={12}>
           <Box className="bg-[#16212b]">
-            <List className="flex flex-row text-[#c3c9f7] p-0">
+            <List className="flex flex-row text-[#c3c9f7]" disablePadding>
               <ListItemButton
                 selected={selectedItem === MenuItems.ABOUT}
                 onClick={() => handleSelectItem(MenuItems.ABOUT)}
