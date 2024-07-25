@@ -165,7 +165,7 @@ const Experience = () => {
           >
             <CardHeader
               avatar={
-                <Avatar aria-label="vbn" className="bg-[#000]">
+                <Avatar aria-label="vbn" sx={{ bgcolor: "#000" }}>
                   <Image
                     src={exp.companyLogo}
                     alt="image"
