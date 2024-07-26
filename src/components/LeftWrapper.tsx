@@ -98,7 +98,7 @@ const LeftWrapper = () => {
           className="w-full"
           size="small"
           startIcon={<DownloadIcon />}
-          color="success"
+          color="primary"
           onClick={handleDownload}
         >
           resume
