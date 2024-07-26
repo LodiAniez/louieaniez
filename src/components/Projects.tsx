@@ -13,22 +13,27 @@ import Link from "@mui/material/Link";
 import { basePath } from "./../../next.config";
 
 import Carousel from "@/components/Carousel";
-
 import PageLayout from "@/layouts/page-layout";
+
+enum ProjectTag {
+  WEB = "Web application",
+  MOBILE = "Mobile application",
+}
 
 type Project = {
   title: string;
-  tags: string[];
+  tags: ProjectTag[];
   images: string[];
   description: string;
   link?: string;
 };
 
 const Project = () => {
+  const { MOBILE, WEB } = ProjectTag;
   const projects: Project[] = [
     {
       title: "Canvaschat",
-      tags: ["Web application", "Chat portal"],
+      tags: [WEB],
       images: [
         `${basePath}/canvaschat/canvaschattool.png`,
         `${basePath}/canvaschat/jackpinemedia.png`,
@@ -39,7 +44,7 @@ const Project = () => {
     },
     {
       title: "Meetsone",
-      tags: ["Web application", "Mobile application"],
+      tags: [WEB, MOBILE],
       images: [
         `${basePath}/meetsone/1.png`,
         `${basePath}/meetsone/meetsone1.png`,
@@ -52,7 +57,7 @@ const Project = () => {
     },
     {
       title: "Fancrew",
-      tags: ["Web application"],
+      tags: [WEB],
       images: [
         `${basePath}/fancrew/fancrew1.png`,
         `${basePath}/fancrew/fancrew2.png`,
@@ -60,6 +65,18 @@ const Project = () => {
       description:
         "Fancrew is a web app that enables businesses to create dynamic questionnaires and surveys, helping them gather valuable insights from their customers.",
       link: "https://dev.cr.fancrew.com/admin/login",
+    },
+    {
+      title: "Requisition app",
+      tags: [WEB],
+      images: [
+        `${basePath}/mymc/mymc1.jpg`,
+        `${basePath}/mymc/mymc2.jpg`,
+        `${basePath}/mymc/mymc3.jpg`,
+        `${basePath}/mymc/mymc4.jpg`,
+      ],
+      description:
+        "Requisition app centralizes the manual process of sending equipment requests from various business addresses to the main office and is deployed internally. It also includes a feature for maintaining an inventory record of each piece of equipment.",
     },
   ];
 
@@ -123,7 +140,7 @@ const Project = () => {
                         {link}
                       </Link>
                     ) : (
-                      <>N / A</>
+                      <em>N / A (Internal)</em>
                     )}
                   </Typography>
                   <Typography variant="body2">{description}</Typography>
