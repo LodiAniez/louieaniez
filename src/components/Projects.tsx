@@ -65,7 +65,7 @@ const Project = () => {
                     className="flex flex-col gap-2"
                     sx={{
                       color: "#e1e1e3",
-                      height: 170,
+                      maxHeight: 270,
                       overflow: "auto",
                     }}
                   >

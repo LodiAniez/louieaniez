@@ -245,7 +245,13 @@ export const useProjects = () => {
       ],
       description:
         "Requisition app centralizes the manual process of sending equipment requests from various business addresses to the main office and is deployed internally. It also includes a feature for maintaining an inventory record of each piece of equipment.",
-      technologies: [techs[ANGULAR], techs[NGRX], techs[GIT], techs[MYSQL]],
+      technologies: [
+        techs[ANGULAR],
+        techs[NGRX],
+        techs[GIT],
+        techs[MYSQL],
+        techs[NODEJS],
+      ],
     },
   ];
 
