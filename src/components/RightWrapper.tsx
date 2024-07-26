@@ -8,6 +8,9 @@ import ListItemText from "@mui/material/ListItemText";
 
 import AboutMe from "@/components/AboutMe";
 import Experience from "@/components/Experience";
+import Project from "@/components/Projects";
+
+import PageLayout from "@/layouts/page-layout";
 
 import { useHook, MenuItems } from "@/hooks/useHook";
 
@@ -65,6 +68,8 @@ const RightWrapper = () => {
           <AboutMe />
         ) : selectedItem === MenuItems.EXPERIENCES ? (
           <Experience />
+        ) : selectedItem === MenuItems.PROJECTS ? (
+          <Project />
         ) : (
           selectedItem
         )}

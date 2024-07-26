@@ -279,7 +279,7 @@ const Experience = () => {
             <CardContent className="flex flex-col gap-2">
               {paragraph.map((p, pIndex) =>
                 isList(p) ? (
-                  <List sx={{ color: "#e1e1e3" }} disablePadding>
+                  <List sx={{ color: "#e1e1e3" }} disablePadding key={pIndex}>
                     {p.list.map(({ label, text }, listIndex) => (
                       <ListItem key={listIndex}>
                         <Typography variant="body2">
