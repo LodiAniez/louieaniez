@@ -10,7 +10,7 @@ import Avatar from "@mui/material/Avatar";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
-import Image from "next/image";
+import WorkIcon from "@mui/icons-material/HomeWorkOutlined";
 import { basePath } from "./../../next.config";
 
 enum Filter {
@@ -26,7 +26,6 @@ enum Filter {
 type Experience = {
   companyName: string;
   duration: string;
-  companyLogo: string;
   paragraph: string[];
   id: Filter;
 };
@@ -43,8 +42,7 @@ const Experience = () => {
     {
       id: Filter.VBN,
       companyName: "Virtual Biznest",
-      companyLogo: `${basePath}/logos/vbn.png`,
-      duration: "November, 2019 - May, 2021",
+      duration: "September, 2019 - May, 2021",
       paragraph: [
         "During my tenure at Virtual Biznest, a dynamic startup specializing in providing digital solutions to partner startups and corporate clients, I served as a fullstack software developer. In this role, I was responsible for the end-to-end development of applications tailored to meet the specific needs of our diverse clientele.",
         "My primary duties involved designing and implementing both frontend and backend components of our applications. I utilized a variety of technologies to build intuitive user interfaces and robust server-side functionality. This included working with modern JavaScript frameworks for frontend development, and leveraging backend technologies to create scalable, high-performance systems.",
@@ -56,35 +54,36 @@ const Experience = () => {
     {
       id: Filter.IPAY,
       companyName: "iPay Center",
-      companyLogo: `${basePath}/logos/ipay.png`,
-      duration: "Work in progress",
-      paragraph: ["Work in progress."],
+      duration: "May, 2021 - August, 2021",
+      paragraph: [
+        "At iPay Center, a progressive startup focused on simplifying bill payments and enhancing service offerings through API integrations, I worked as a fullstack developer. Our mission was twofold: to provide billers with a convenient platform for managing payments and to offer partner clients the ability to expand their services by integrating their APIs into our system.",
+        "In my role, I was responsible for the fullstack development of our applications. This included designing and implementing both frontend and backend components to create a seamless user experience and robust server-side functionality. Additionally, I managed the deployment of our software on cloud-hosted Virtual Private Servers (VPS), ensuring that applications were efficiently configured and maintained for optimal performance and reliability.",
+        "A key aspect of my role involved leading our small, dedicated development team of three members. I guided the team through the project lifecycle, from initial planning and architectural design to development and deployment. This leadership role required effective communication and coordination to ensure that our goals were met and that the development process ran smoothly.",
+        "Part of my responsibilities also included designing the software architecture. I made strategic decisions regarding system design and infrastructure, focusing on scalability and integration capabilities to handle transactions and interact with external service APIs. This architectural work was crucial for ensuring the robustness and efficiency of our solutions.",
+        "Overall, my experience at iPay Center provided me with valuable skills in fullstack development, cloud deployment, and team leadership. I am proud to have led a team in delivering impactful digital solutions while contributing to the company’s mission of improving bill payment convenience and extending service capabilities through innovative integrations.",
+      ],
     },
     {
       id: Filter.JCURVE,
       companyName: "JCurve Solutions",
-      companyLogo: `${basePath}/logos/jcurve.jpg`,
-      duration: "Work in progress",
+      duration: "August, 2021 - March, 2022",
       paragraph: ["Work in progress."],
     },
     {
       id: Filter.MYMC,
       companyName: "Molave Young's Milling Corporation",
-      companyLogo: `${basePath}/logos/mymc.png`,
-      duration: "Work in progress",
+      duration: "March, 2022 - June, 2022",
       paragraph: ["Work in progress."],
     },
     {
       id: Filter.SUN,
       companyName: "Sun Asterisk",
-      companyLogo: `${basePath}/logos/sunasterisk.png`,
-      duration: "Work in progress",
+      duration: "July, 2022 - August, 2024",
       paragraph: ["Work in progress."],
     },
     {
       id: Filter.VC,
       companyName: "Virtual Champions",
-      companyLogo: `${basePath}/logos/vc.png`,
       duration: "Freelancing",
       paragraph: ["Work in progress."],
     },
@@ -141,9 +140,9 @@ const Experience = () => {
         </label>
         <FormControl size="small">
           <Select value={filter} onChange={handleChange} className="bg-[#fff]">
-            {companies.map((company, index) => (
-              <MenuItem value={company.value} key={index}>
-                {company.displayName}
+            {companies.map(({ displayName, value }, index) => (
+              <MenuItem value={value} key={index}>
+                {displayName}
               </MenuItem>
             ))}
           </Select>
@@ -157,7 +156,7 @@ const Experience = () => {
         </p>
       </div>
       <Box className="flex flex-col gap-2">
-        {expContent.map((exp, index) => (
+        {expContent.map(({ companyName, duration, paragraph }, index) => (
           <Card
             className="w-full"
             sx={{ backgroundColor: "#16212b" }}
@@ -165,18 +164,12 @@ const Experience = () => {
           >
             <CardHeader
               avatar={
-                <Avatar aria-label="vbn" sx={{ bgcolor: "#000" }}>
-                  <Image
-                    src={exp.companyLogo}
-                    alt="image"
-                    width={100}
-                    height={100}
-                    priority
-                  />
+                <Avatar aria-label="vbn" sx={{ color: "#16212b" }}>
+                  <WorkIcon />
                 </Avatar>
               }
-              title={exp.companyName}
-              subheader={exp.duration}
+              title={companyName}
+              subheader={duration}
               titleTypographyProps={{
                 fontWeight: 600,
                 color: "#fff",
@@ -186,7 +179,7 @@ const Experience = () => {
               }}
             ></CardHeader>
             <CardContent className="flex flex-col gap-2">
-              {exp.paragraph.map((p, pIndex) => (
+              {paragraph.map((p, pIndex) => (
                 <Typography
                   variant="body2"
                   className="text-[#ccc]"

@@ -11,7 +11,7 @@ import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
 import EmailIcon from "@mui/icons-material/EmailOutlined";
 import PhoneIcon from "@mui/icons-material/PhoneAndroidOutlined";
-import LocationIcon from "@mui/icons-material/MapsHomeWorkOutlined";
+import LocationIcon from "@mui/icons-material/LocationOnOutlined";
 import CakeIcon from "@mui/icons-material/CakeOutlined";
 import DownloadIcon from "@mui/icons-material/DownloadOutlined";
 import { basePath } from "./../../next.config";
