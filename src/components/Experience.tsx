@@ -8,10 +8,11 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Avatar from "@mui/material/Avatar";
 import FormControl from "@mui/material/FormControl";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import WorkIcon from "@mui/icons-material/HomeWorkOutlined";
-import { basePath } from "./../../next.config";
 
 enum Filter {
   ALL = "all",
@@ -23,10 +24,17 @@ enum Filter {
   VC = "vc",
 }
 
+type List = {
+  list: {
+    label: string;
+    text: string;
+  }[];
+};
+
 type Experience = {
   companyName: string;
   duration: string;
-  paragraph: string[];
+  paragraph: (string | List)[];
   id: Filter;
 };
 
@@ -37,6 +45,10 @@ type Company = {
 
 const Experience = () => {
   const [filter, setFilter] = useState<Filter>(Filter.ALL);
+
+  const isList = (data: string | List): data is List => {
+    return typeof data === "object" && "list" in data;
+  };
 
   const experiences: Experience[] = [
     {
@@ -67,25 +79,111 @@ const Experience = () => {
       id: Filter.JCURVE,
       companyName: "JCurve Solutions",
       duration: "August, 2021 - March, 2022",
-      paragraph: ["Work in progress."],
+      paragraph: [
+        "During my time at JCurve, a prominent corporate company specializing in providing software services to a diverse range of Australian clients, I served as a fullstack developer. My primary responsibility was to enhance and maintain existing web applications by implementing new features and improving functionality.",
+        "In this role, I engaged in both frontend and backend development to ensure that our web applications met the evolving needs of our clients. On the frontend, I worked with modern frameworks and technologies to create intuitive and responsive user interfaces. On the backend, I developed and optimized server-side logic, integrated APIs, and managed database interactions to support new features and ensure overall system performance.",
+        "My work involved collaborating closely with cross-functional teams, including product managers, UX/UI designers, and QA engineers, to understand requirements and deliver high-quality solutions. I participated in code reviews and provided constructive feedback to maintain code quality and adhere to best practices.",
+        "Additionally, I was responsible for troubleshooting and resolving any issues that arose during the implementation of new features. This required a proactive approach to problem-solving and a thorough understanding of the existing application architecture.",
+        "Overall, my role at JCurve allowed me to contribute to the continuous improvement of our web applications, ensuring they delivered value to our Australian clients. My experience there strengthened my fullstack development skills and provided me with valuable insights into managing and enhancing enterprise-level software solutions.",
+      ],
     },
     {
       id: Filter.MYMC,
       companyName: "Molave Young's Milling Corporation",
       duration: "March, 2022 - June, 2022",
-      paragraph: ["Work in progress."],
+      paragraph: [
+        "At MYMC, a corporate company dedicated to automating manual transactions and streamlining business processes, I worked as a fullstack developer. In this role, I was the sole developer on the team, which meant that I was responsible for overseeing all aspects of the software development lifecycle.",
+        "My primary responsibilities encompassed several key areas:",
+        {
+          list: [
+            {
+              label: "Software Architecture Planning:",
+              text: "I designed the architecture for various applications, ensuring that they were scalable, maintainable, and aligned with the company’s goals of automating manual processes. This involved selecting appropriate technologies, defining system components, and establishing best practices for development and deployment.",
+            },
+            {
+              label: "Development:",
+              text: "I developed both mobile and web applications from the ground up. This included building user-friendly interfaces and implementing backend services to handle core functionalities. My development work aimed to improve efficiency and enhance the user experience across both platforms.",
+            },
+            {
+              label: "Testing:",
+              text: "I implemented comprehensive testing strategies to ensure the quality and reliability of the applications. This involved writing unit tests, conducting integration tests, and performing manual testing to identify and resolve any issues before deployment.",
+            },
+            {
+              label: "Local Deployments:",
+              text: "I handled the deployment of applications on local environments, ensuring that they were correctly configured and ready for use. This included setting up development and staging environments, managing server configurations, and deploying updates as needed.",
+            },
+            {
+              label: "Reporting:",
+              text: "As the sole developer, I was responsible for reporting on project progress to higher management. This involved preparing detailed updates, outlining milestones achieved, and addressing any challenges or delays that might impact project timelines.",
+            },
+          ],
+        },
+        "Overall, my role at MYMC provided me with a comprehensive view of the software development process. Being the only developer on the team allowed me to gain extensive experience in all facets of development, from initial architecture planning to final deployment and reporting. My contributions were crucial in advancing the company’s mission to automate and optimize its manual transactions, ultimately leading to increased operational efficiency.",
+      ],
     },
     {
       id: Filter.SUN,
       companyName: "Sun Asterisk",
       duration: "July, 2022 - August, 2024",
-      paragraph: ["Work in progress."],
+      paragraph: [
+        "At Sun Asterisk, a Japan-based corporate company renowned for providing software solutions to Japanese clients, I worked as a fullstack developer. Our work involved both developing new software applications from scratch and implementing new features in existing client systems.",
+        "In my role, I had a diverse range of responsibilities:",
+        {
+          list: [
+            {
+              label: "Team Leadership:",
+              text: "I led a small team of developers on various projects, overseeing the entire development lifecycle. This included assigning tasks, setting deadlines, and ensuring alignment with project goals. My leadership focused on fostering a collaborative environment and maintaining high standards of quality.",
+            },
+            {
+              label: "Code Reviews:",
+              text: "I conducted in-depth code reviews to ensure that all code met quality standards and adhered to best practices. This process not only improved the overall codebase but also provided opportunities for mentoring and guiding team members on coding standards and techniques.",
+            },
+            {
+              label: "Fullstack Development:",
+              text: "I was actively involved in both frontend and backend development. On the frontend, I used modern frameworks to create responsive and user-friendly interfaces, while on the backend, I developed and optimized server-side logic, integrated APIs, and managed databases to enhance functionality and performance.",
+            },
+            {
+              label: "Training and Mentorship:",
+              text: "I was responsible for training junior developers and newly hired team members. This involved providing them with the necessary guidance, resources, and support to help them integrate smoothly into the team and develop their skills effectively.",
+            },
+            {
+              label: "Planning and Coordination:",
+              text: "I participated in project planning meetings, contributing to the creation of project roadmaps and setting achievable milestones. I worked closely with stakeholders, including product managers and clients, to gather requirements, define project scope, and address any issues that arose.",
+            },
+          ],
+        },
+        "Overall, my role at Sun Asterisk allowed me to gain extensive experience in leading development teams, performing fullstack development, and training new talent. My contributions were crucial in delivering high-quality software solutions that met our Japanese clients' needs, while also enhancing the functionality of existing applications. This role enhanced my skills in both technical development and team management, preparing me to tackle complex projects and drive successful outcomes.",
+      ],
     },
     {
       id: Filter.VC,
       companyName: "Virtual Champions",
       duration: "Freelancing",
-      paragraph: ["Work in progress."],
+      paragraph: [
+        "As a freelancer with Virtual Champions, I worked on a project for a Dubai-based startup that specializes in delivering digital solutions for depots in Dubai. My role as a fullstack developer was central to enhancing and maintaining their application, which was designed to streamline depot operations and improve efficiency.",
+        "Key Responsibilities:",
+        {
+          list: [
+            {
+              label: "Fullstack Development:",
+              text: "I was responsible for the fullstack development of the application, which involved both frontend and backend tasks. On the frontend, I utilized modern frameworks and technologies to develop and enhance user interfaces, ensuring they were intuitive, responsive, and aligned with the user needs. On the backend, I worked on integrating APIs, optimizing server-side logic, and managing database interactions to support new features and maintain overall application performance.",
+            },
+            {
+              label: "Feature Development:",
+              text: "A significant part of my role involved developing new features for the existing application. This included gathering requirements, designing and implementing features, and ensuring they integrated seamlessly with the existing system. My work aimed to enhance the functionality of the application and provide valuable solutions for the client’s depot management needs.",
+            },
+            {
+              label: "Bug Fixing:",
+              text: "I also addressed and resolved reported bugs and issues within the application. This involved troubleshooting problems, identifying the root causes, and implementing fixes to ensure the application ran smoothly and met the quality standards expected by the client. My proactive approach to bug fixing helped maintain a high level of reliability and user satisfaction.",
+            },
+            {
+              label: "Client Communication:",
+              text: "Although not explicitly mentioned in the initial brief, effective communication with the client was an integral part of my freelance role. I regularly updated the client on progress, discussed any issues or requirements, and ensured that my work aligned with their expectations and business objectives.",
+            },
+          ],
+        },
+        "Overall, my freelance work with Virtual Champions for their Dubai-based client allowed me to leverage my fullstack development skills to contribute to a significant project in the digital solutions space. I played a key role in enhancing the application, developing new features, and resolving issues, all of which were critical in supporting the startup's goal of optimizing depot operations in Dubai. This experience further honed my technical skills and provided valuable insights into working with international clients and delivering impactful solutions.",
+      ],
     },
   ];
 
@@ -179,15 +277,28 @@ const Experience = () => {
               }}
             ></CardHeader>
             <CardContent className="flex flex-col gap-2">
-              {paragraph.map((p, pIndex) => (
-                <Typography
-                  variant="body2"
-                  className="text-[#ccc]"
-                  key={pIndex}
-                >
-                  {p}
-                </Typography>
-              ))}
+              {paragraph.map((p, pIndex) =>
+                isList(p) ? (
+                  <List sx={{ color: "#e1e1e3" }} disablePadding>
+                    {p.list.map(({ label, text }, listIndex) => (
+                      <ListItem key={listIndex}>
+                        <Typography variant="body2">
+                          <label className="font-semibold">{label}</label>
+                          <label>&nbsp;{text}</label>
+                        </Typography>
+                      </ListItem>
+                    ))}
+                  </List>
+                ) : (
+                  <Typography
+                    variant="body2"
+                    className="text-[#ccc]"
+                    key={pIndex}
+                  >
+                    {p}
+                  </Typography>
+                )
+              )}
             </CardContent>
           </Card>
         ))}
