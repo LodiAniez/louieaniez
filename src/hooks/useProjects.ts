@@ -26,6 +26,8 @@ enum Technologies {
   NGRX = "NgRx",
   REACT = "React JS",
   RN = "React Native",
+  EXPRESS = "ExpressJS",
+  PWA = "Progressive Web App",
 }
 
 enum ProjectTag {
@@ -69,6 +71,8 @@ export const useProjects = () => {
     NGRX,
     REACT,
     RN,
+    EXPRESS,
+    PWA,
   } = Technologies;
 
   const techs: Techs = {
@@ -164,6 +168,14 @@ export const useProjects = () => {
       color: "#1a0101",
       tech: RN,
     },
+    [PWA]: {
+      color: "#241b04",
+      tech: PWA,
+    },
+    [EXPRESS]: {
+      color: "#042420",
+      tech: EXPRESS,
+    },
   };
 
   const projects: Project[] = [
@@ -212,6 +224,7 @@ export const useProjects = () => {
         techs[TS],
         techs[JS],
         techs[LINUX],
+        techs[NODEJS],
       ],
     },
     {
@@ -232,10 +245,11 @@ export const useProjects = () => {
         techs[DOCKER],
         techs[NEST],
         techs[POSTGRE],
+        techs[NODEJS],
       ],
     },
     {
-      title: "Requisition app",
+      title: "Requisition App",
       tags: [WEB],
       images: [
         `${basePath}/mymc/mymc1.jpg`,
@@ -251,6 +265,26 @@ export const useProjects = () => {
         techs[GIT],
         techs[MYSQL],
         techs[NODEJS],
+      ],
+    },
+    {
+      title: "Mathieus Pizza Ordering App",
+      tags: [MOBILE, WEB],
+      images: [
+        `${basePath}/mathieus/app.jpg`,
+        `${basePath}/mathieus/mathieus.jpg`,
+      ],
+      description:
+        "Mathieu's Pizza Ordering App, exclusively deployed in Leyte for Mathieu's Resto, allows customers to order their favorite pizzas and desserts while featuring a real-time chat function.",
+      technologies: [
+        techs[ANGULAR],
+        techs[NODEJS],
+        techs[NGRX],
+        techs[EXPRESS],
+        techs[PWA],
+        techs[LINUX],
+        techs[GIT],
+        techs[SOCKETIO],
       ],
     },
   ];

@@ -84,13 +84,13 @@ const Project = () => {
                     </Typography>
                     <Typography variant="body2">{description}</Typography>
                     <Grid container spacing={0.5}>
-                      {technologies.map((tech, techIndex) => (
+                      {technologies.map(({ color, tech }, techIndex) => (
                         <Grid item xs={4} key={techIndex}>
                           <Typography
-                            sx={{ bgcolor: tech.color, color: "#fff" }}
+                            sx={{ bgcolor: color, color: "#fff" }}
                             className="p-1 rounded-md text-center text-xs"
                           >
-                            {tech.tech}
+                            {tech}
                           </Typography>
                         </Grid>
                       ))}
