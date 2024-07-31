@@ -287,6 +287,27 @@ export const useProjects = () => {
         techs[SOCKETIO],
       ],
     },
+    {
+      title: "Legal Search App",
+      tags: [WEB],
+      images: [
+        `${basePath}/mhm/mhm1.jpg`,
+        `${basePath}/mhm/mhm2.jpg`,
+        `${basePath}/mhm/mhm3.png`,
+      ],
+      description:
+        "Legalsearch App is a software solution tailored for law firm businesses in Japan, allowing them to archive their past cases and enabling efficient case search and download capabilities.",
+      technologies: [
+        techs[NODEJS],
+        techs[LARAVEL],
+        techs[REACT],
+        techs[DOCKER],
+        techs[LINUX],
+        techs[GIT],
+        techs[MUI],
+        techs[TAILWIND],
+      ],
+    },
   ];
 
   const handleOpenLink = (link: string) => {
