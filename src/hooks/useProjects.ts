@@ -28,6 +28,9 @@ enum Technologies {
   RN = "React Native",
   EXPRESS = "ExpressJS",
   PWA = "Progressive Web App",
+  SVELTE = "Svelte",
+  NUXT = "Nuxt JS",
+  VUE = "Vue.js",
 }
 
 enum ProjectTag {
@@ -73,6 +76,9 @@ export const useProjects = () => {
     RN,
     EXPRESS,
     PWA,
+    SVELTE,
+    NUXT,
+    VUE,
   } = Technologies;
 
   const techs: Techs = {
@@ -175,6 +181,18 @@ export const useProjects = () => {
     [EXPRESS]: {
       color: "#042420",
       tech: EXPRESS,
+    },
+    [SVELTE]: {
+      color: "#8a9443",
+      tech: SVELTE,
+    },
+    [NUXT]: {
+      color: "#99635f",
+      tech: NUXT,
+    },
+    [VUE]: {
+      color: "#572a56",
+      tech: VUE,
     },
   };
 
@@ -307,6 +325,73 @@ export const useProjects = () => {
         techs[MUI],
         techs[TAILWIND],
       ],
+    },
+    {
+      title: "SBS web app",
+      tags: [WEB],
+      images: [`${basePath}/sbs/bus.png`, `${basePath}/sbs/sbs.png`],
+      description:
+        "The SBS app simplifies the hiring process for SBS and allows contractors to easily submit proposals for advertised projects.",
+      technologies: [
+        techs[NODEJS],
+        techs[FIREBASE],
+        techs[SVELTE],
+        techs[REACT],
+        techs[DOCKER],
+        techs[LINUX],
+        techs[GIT],
+        techs[MUI],
+        techs[TAILWIND],
+        techs[NUXT],
+        techs[VUE],
+      ],
+      link: "https://www.sbstransit.com.sg/",
+    },
+    {
+      title: "Quicta Booking App",
+      tags: [WEB],
+      images: [
+        `${basePath}/quicta/integrations.png`,
+        `${basePath}/quicta/quicta.png`,
+        `${basePath}/quicta/services.png`,
+      ],
+      description:
+        "The Quicta booking app gives businesses flexible control over their workflow management.",
+      technologies: [
+        techs[NODEJS],
+        techs[FIREBASE],
+        techs[SVELTE],
+        techs[REACT],
+        techs[DOCKER],
+        techs[LINUX],
+        techs[GIT],
+        techs[MUI],
+        techs[TAILWIND],
+        techs[NUXT],
+        techs[VUE],
+      ],
+      link: "https://www.jcurvesolutions.com/quicta/",
+    },
+    {
+      title: "Singlife app",
+      description:
+        "The Singlife app offers customers access to insurance applications.",
+      images: [
+        `${basePath}/singlife/app.jpg`,
+        `${basePath}/singlife/singlife.png`,
+      ],
+      tags: [WEB, MOBILE],
+      technologies: [
+        techs[NODEJS],
+        techs[POSTGRE],
+        techs[REACT],
+        techs[DOCKER],
+        techs[LINUX],
+        techs[GIT],
+        techs[MUI],
+        techs[TAILWIND],
+      ],
+      link: "https://singlife.com.ph/",
     },
   ];
 
